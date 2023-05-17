@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     console.log('GET called');
-    res.send('Hello world!');
+    res.send('HyperSupply');
 });
 
 app.get('/getProduct', network.connectToNetwork, async (req, res) => {
@@ -23,7 +23,7 @@ app.get('/getProduct', network.connectToNetwork, async (req, res) => {
         console.log(response);
         res.json({ result: response });
     } catch(error) {
-        console.error(`Failed to evaluate transaction: ${error}`);
+        console.error(`Failed to evaluate the transaction: ${error}`);
         res.status(500).json({
             error: error
         });
@@ -44,7 +44,7 @@ app.post('/createProduct', network.connectToNetwork, async (req, res) => {
             "data": productJson
         })
     } catch(error) {
-        console.error(`Failed to evaluate transaction: ${error}`);
+        console.error(`Failed to evaluate the transaction: ${error}`);
         res.status(500).json({
             error: error
         });
@@ -61,7 +61,7 @@ app.get('/getProductWithHistory', network.connectToNetwork, async (req, res) => 
         console.log(response);
         res.status(200).json({
             "status": "success",
-            "message": "Successfully fetched product history",
+            "message": `Successfully fetched the product history of the product with productId: ${productId}`,
             "data": response.locationData
           })
     } catch(error) {
